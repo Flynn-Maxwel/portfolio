@@ -280,6 +280,7 @@
         /* NEW: Dynamic Island for Theme Toggle */
         #theme-toggle-container {
             transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+            cursor: pointer;
         }
         #theme-toggle-container:hover {
             width: 140px;
@@ -331,11 +332,11 @@
         </nav>
         
         <!-- UPDATED: Dynamic Island Theme Toggle -->
-        <div id="theme-toggle-container" class="relative flex items-center justify-center ml-4 bg-card-dark/20 backdrop-blur-md rounded-full h-12 w-12 shadow-lg border border-white/10">
-            <button id="theme-toggle" class="absolute w-12 h-12 p-3 text-text-primary hover:text-accent-color transition-colors" aria-label="Toggle dark and light mode">
+        <div id="theme-toggle-container" class="relative flex items-center justify-center ml-4 bg-card-dark/20 backdrop-blur-md rounded-full h-12 w-12 shadow-lg border border-white/10" role="button" aria-label="Toggle dark and light mode">
+            <div id="theme-toggle" class="absolute w-12 h-12 p-3 text-text-primary hover:text-accent-color transition-colors">
                 <svg id="theme-toggle-dark-icon" class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                 <svg id="theme-toggle-light-icon" class="hidden w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </button>
+            </div>
             <span id="theme-toggle-text" class="whitespace-nowrap text-text-primary opacity-0 font-semibold pointer-events-none text-sm"></span>
         </div>
 
@@ -427,95 +428,95 @@
         <!-- Projects Section -->
         <section id="projects" class="py-20 md:py-32" data-animation="focus-pull">
              <div class="container mx-auto px-6">
-                  <h2 class="text-4xl font-playfair font-bold text-center mb-8 animate-item">Creations</h2>
-                   <!-- NEW: Download Resume Button -->
-                    <div class="text-center mb-16 animate-item" style="transition-delay: 150ms;">
-                        <a href="Max-Resume.pdf" download class="btn btn-outline">
-                            <i class="fas fa-file-arrow-down mr-2"></i> Download My Resume
-                        </a>
+                    <h2 class="text-4xl font-playfair font-bold text-center mb-8 animate-item">Creations</h2>
+                       <!-- NEW: Download Resume Button -->
+                        <div class="text-center mb-16 animate-item" style="transition-delay: 150ms;">
+                            <a href="Max-Resume.pdf" download class="btn btn-outline">
+                                <i class="fas fa-file-arrow-down mr-2"></i> Download My Resume
+                            </a>
+                        </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                            <!-- Project Cards with Tech Tags -->
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">IoT Ambulance Project</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">This project is a real-time IoT system for patient health monitoring and automated traffic control... The data is sent to a cloud platform for remote monitoring, and emergency alerts are sent via a GSM module to ensure a faster response.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">Arduino</span><span class="tech-tag">ESP8266</span><span class="tech-tag">ThingSpeak</span><span class="tech-tag">GSM</span>
+                                </div>
+                            </div>
+
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">Smart Floor for Intruder Detection</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">A security project that uses a simple, Arduino-based circuit to detect intrusions... a combination of an RGB LED and buzzer to provide visual and auditory alerts when an unauthorized presence is detected.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">Arduino</span><span class="tech-tag">PIR Sensor</span><span class="tech-tag">Force Sensor</span>
+                                </div>
+                            </div>
+
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">Personal AI Assistant (‘FRIDAY’ inspired)</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">A sophisticated voice-controlled assistant with a graphical user interface... This project showcases proficiency in Natural Language Processing (NLP) and building cohesive, user-friendly applications.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">Python</span><span class="tech-tag">GUI</span><span class="tech-tag">NLP</span>
+                                </div>
+                            </div>
+
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">AlterVerse Python Game</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">A game designed to demonstrate seamless database integration... highlighting skills in backend data management and front-end user experience.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">Python</span><span class="tech-tag">MySQL</span>
+                                </div>
+                            </div>
+
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">AI-Powered File Organizer App</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">An intelligent desktop application that automates file management... a drag-and-drop interface and audio alerts for a streamlined user experience.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">Python</span><span class="tech-tag">AI/ML</span>
+                                </div>
+                            </div>
+
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">Web App for Group Music Listening</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">This web application allows multiple users to listen to music together in real-time... creating a shared and social listening experience.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">JavaScript</span><span class="tech-tag">Web APIs</span>
+                                </div>
+                            </div>
+
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">Portfolio Website</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">This personal website serves as a showcase for various creative and technical projects... highlighting a blend of coding and design skills.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">HTML</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">JavaScript</span>
+                                </div>
+                            </div>
+                            
+                            <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
+                                <h3 class="text-2xl font-playfair font-bold mb-2">Startup Idea – Fitness Vending Machine</h3>
+                                <div class="flex-grow">
+                                    <p class="mb-6">A comprehensive business plan for a vending machine that dispenses popular fitness supplements... highlighting strategic planning, market analysis, and a entrepreneurial mindset.</p>
+                                </div>
+                                <div class="mt-auto pt-4">
+                                    <span class="tech-tag">Business Plan</span>
+                                </div>
+                            </div>
                     </div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                       <!-- Project Cards with Tech Tags -->
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">IoT Ambulance Project</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">This project is a real-time IoT system for patient health monitoring and automated traffic control... The data is sent to a cloud platform for remote monitoring, and emergency alerts are sent via a GSM module to ensure a faster response.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">Arduino</span><span class="tech-tag">ESP8266</span><span class="tech-tag">ThingSpeak</span><span class="tech-tag">GSM</span>
-                           </div>
-                       </div>
-
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">Smart Floor for Intruder Detection</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">A security project that uses a simple, Arduino-based circuit to detect intrusions... a combination of an RGB LED and buzzer to provide visual and auditory alerts when an unauthorized presence is detected.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">Arduino</span><span class="tech-tag">PIR Sensor</span><span class="tech-tag">Force Sensor</span>
-                           </div>
-                       </div>
-
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">Personal AI Assistant (‘FRIDAY’ inspired)</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">A sophisticated voice-controlled assistant with a graphical user interface... This project showcases proficiency in Natural Language Processing (NLP) and building cohesive, user-friendly applications.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">Python</span><span class="tech-tag">GUI</span><span class="tech-tag">NLP</span>
-                           </div>
-                       </div>
-
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">AlterVerse Python Game</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">A game designed to demonstrate seamless database integration... highlighting skills in backend data management and front-end user experience.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">Python</span><span class="tech-tag">MySQL</span>
-                           </div>
-                       </div>
-
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">AI-Powered File Organizer App</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">An intelligent desktop application that automates file management... a drag-and-drop interface and audio alerts for a streamlined user experience.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">Python</span><span class="tech-tag">AI/ML</span>
-                           </div>
-                       </div>
-
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">Web App for Group Music Listening</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">This web application allows multiple users to listen to music together in real-time... creating a shared and social listening experience.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">JavaScript</span><span class="tech-tag">Web APIs</span>
-                           </div>
-                       </div>
-
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">Portfolio Website</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">This personal website serves as a showcase for various creative and technical projects... highlighting a blend of coding and design skills.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">HTML</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">JavaScript</span>
-                           </div>
-                       </div>
-                       
-                       <div class="professional-card bg-card-color rounded-2xl shadow-lg overflow-hidden p-8 animate-item">
-                           <h3 class="text-2xl font-playfair font-bold mb-2">Startup Idea – Fitness Vending Machine</h3>
-                           <div class="flex-grow">
-                               <p class="mb-6">A comprehensive business plan for a vending machine that dispenses popular fitness supplements... highlighting strategic planning, market analysis, and a entrepreneurial mindset.</p>
-                           </div>
-                           <div class="mt-auto pt-4">
-                               <span class="tech-tag">Business Plan</span>
-                           </div>
-                       </div>
-                  </div>
              </div>
         </section>
         
@@ -544,10 +545,10 @@
                 <p class="text-center mb-12 max-w-2xl mx-auto animate-item">I'm always open to new opportunities and collaborations. Fill out the form below or connect with me on social media.</p>
                 
                 <!-- 
-                  TROUBLESHOOTING YOUR GOOGLE FORM
-                  The most common reason for failure is a mismatch in the 'name' attributes below.
-                  Please follow the steps provided to verify that each 'entry.xxxxxxxxxx' value
-                  is the correct one for your specific Google Form.
+                    TROUBLESHOOTING YOUR GOOGLE FORM
+                    The most common reason for failure is a mismatch in the 'name' attributes below.
+                    Please follow the steps provided to verify that each 'entry.xxxxxxxxxx' value
+                    is the correct one for your specific Google Form.
                 -->
                 <div class="max-w-xl mx-auto p-8 rounded-2xl light:border light:border-gray-200 bg-card-color animate-item text-center">
                     <form id="contact-form" class="space-y-6">
@@ -612,6 +613,7 @@
             const sections = document.querySelectorAll('main > section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
             const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleContainer = document.getElementById('theme-toggle-container'); // Get the container
             const themeToggleText = document.getElementById('theme-toggle-text');
             const darkIcon = document.getElementById('theme-toggle-dark-icon');
             const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -699,13 +701,13 @@
                             // Animate items within the section
                             const animatedItems = section.querySelectorAll('.animate-item');
                              gsap.to(animatedItems, {
-                                opacity: 1,
-                                y: 0,
-                                duration: 0.5, // Faster item animation
-                                ease: "power3.out",
-                                stagger: 0.05, // Faster stagger
-                                delay: 0.1 // Short delay after section starts animating
-                            });
+                                 opacity: 1,
+                                 y: 0,
+                                 duration: 0.5, // Faster item animation
+                                 ease: "power3.out",
+                                 stagger: 0.05, // Faster stagger
+                                 delay: 0.1 // Short delay after section starts animating
+                             });
                         },
                         once: true
                     });
@@ -791,8 +793,8 @@
             const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
             const savedTheme = localStorage.getItem('color-theme');
             setTheme(savedTheme === 'light' || (!savedTheme && prefersLight));
-            if (themeToggleBtn) {
-                themeToggleBtn.addEventListener('click', () => setTheme(document.documentElement.classList.contains('dark')));
+            if (themeToggleContainer) {
+                themeToggleContainer.addEventListener('click', () => setTheme(document.documentElement.classList.contains('dark')));
             }
             
             // Time-bending text effect initialization
