@@ -301,6 +301,38 @@
             opacity: 1;
             transform: translateX(25px);
         }
+
+        /* NEW: Custom Cursor */
+        /* body {
+            cursor: none;
+        } */ /* Removed this rule */
+        #cursor-dot, #cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 11000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+        #cursor-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-color);
+        }
+        #cursor-ring {
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent-color);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s;
+            opacity: 0.7;
+        }
+        /* Cursor hover state */
+        #cursor-ring.cursor-hover {
+            transform: translate(-50%, -50%) scale(2.5);
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="font-inter">
@@ -368,7 +400,7 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="animate-item">
-                        <img src="https://placehold.co/800x1000/1A1A1A/444444?text=Creator" alt="A portrait of Max, the creative developer" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                        <img src="https://placehold.co/800x1000/1A1A1A/444444?text=Creator" alt="A portrait of Max, the creative developer" class="rounded-lg shadow-2xl w-full h-auto object-cover" loading="lazy" decoding="async">
                     </div>
                     <div class="max-w-xl">
                         <h2 class="text-5xl md:text-6xl font-playfair font-bold mb-8 animate-item">My Story</h2>
@@ -599,6 +631,10 @@
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
     </button>
     
+    <!-- NEW: Custom Cursor Elements -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    
     <!-- FIXED: GSAP scripts moved to the end of body -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -606,6 +642,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             gsap.registerPlugin(ScrollTrigger);
+
+            // NEW: Hero Entrance Animation
+            gsap.from("#hero-content .animate-item", {
+                duration: 0.8,
+                opacity: 0,
+                y: 40,
+                stagger: 0.1,
+                delay: 0.2, // Small delay for page to settle
+                ease: "power3.out"
+            });
 
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -623,6 +669,21 @@
             const contactForm = document.getElementById('contact-form');
             const logoContainer = document.getElementById('logo-container');
             
+            // NEW: Custom Cursor Logic
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorRing = document.getElementById('cursor-ring');
+            if (cursorDot && cursorRing) {
+                window.addEventListener('mousemove', (e) => {
+                    gsap.to(cursorDot, { duration: 0.1, x: e.clientX, y: e.clientY });
+                    gsap.to(cursorRing, { duration: 0.3, x: e.clientX, y: e.clientY, ease: 'power2.out' });
+                });
+                const hoverElements = document.querySelectorAll('a, button, .professional-card, #logo-container, #theme-toggle-container');
+                hoverElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => cursorRing.classList.add('cursor-hover'));
+                    el.addEventListener('mouseleave', () => cursorRing.classList.remove('cursor-hover'));
+                });
+            }
+
             // Mobile Menu
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
@@ -742,14 +803,14 @@
                         cards.forEach(otherCard => {
                             if (otherCard !== card) {
                                 otherCard.style.opacity = '0.5';
-                                otherCard.style.transform = 'scale(0.98)';
+                                // otherCard.style.transform = 'scale(0.98)'; // REMOVED for a cleaner effect
                             }
                         });
                     });
                     card.addEventListener('mouseleave', () => {
                         cards.forEach(otherCard => {
                             otherCard.style.opacity = '1';
-                            otherCard.style.transform = '';
+                            // otherCard.style.transform = ''; // REMOVED for a cleaner effect
                         });
                     });
                 });
@@ -1002,5 +1063,7 @@
     </script>
 </body>
 </html>
+
+
 
 
